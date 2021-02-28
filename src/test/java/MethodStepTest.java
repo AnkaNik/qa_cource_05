@@ -16,8 +16,7 @@ public class MethodStepTest {
         steps.searchForRepository(REPOSITORY);
         steps.goToRepositoryFromSearch(REPOSITORY);
         steps.openRepositoryIssues();
-
-        steps.shouldSeeIssueWithNumber(ISSUE_NUMBER);
+        steps.shouldSeeIssueWithTitle(ISSUE_TITLE);
     }
 
     @Test
@@ -29,9 +28,8 @@ public class MethodStepTest {
         steps.searchForRepository(REPOSITORY);
         steps.goToRepositoryFromSearch(REPOSITORY);
         steps.openRepositoryIssues();
-
         steps.createIssueWithTitle(ISSUE_TITLE);
-        steps.shouldSeeIssueWithTitle(title);
+        steps.shouldSeeIssueWithTitle(ISSUE_NUMBER);
     }
 
 }
