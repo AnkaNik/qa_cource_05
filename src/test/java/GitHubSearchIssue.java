@@ -20,12 +20,12 @@ class GitHubIssueTest {
     public void testIssueSearch() {
         open(BASE_URL);
         $(".header-search-input").click();
-        $(".header-search-input").sendKeys(REPOSITORY);
+        $(".header-search-input").setValue(REPOSITORY).submit();
         $(".header-search-input").submit();
         $(By.linkText(REPOSITORY)).click();
         $(withText(ISSUES)).click();
-        $(withText(ISSUE_NUMBER)).should(Condition.exist);
-        $(withText(ISSUE_TITLE)).should(Condition.exist);
+        $(withText(ISSUE_NUMBER)).should(Condition.visible);
+        $(withText(ISSUE_TITLE)).should(Condition.visible);
 
 
     }

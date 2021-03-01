@@ -26,7 +26,7 @@ import static io.qameta.allure.Allure.step;
         });
         step("Search repository " + REPOSITORY, () -> {
             $(".header-search-input").click();
-            $(".header-search-input").sendKeys(REPOSITORY);
+            $(".header-search-input").setValue(REPOSITORY).submit();
             $(".header-search-input").submit();
         });
         step("Go to repository " + REPOSITORY, () -> {
@@ -36,7 +36,7 @@ import static io.qameta.allure.Allure.step;
             $(withText(ISSUES)).click();
         });
         step("Check that issue with " + ISSUE_TITLE + " present", () -> {
-            $(withText(ISSUE_TITLE)).should(Condition.exist);
+            $(withText(ISSUE_TITLE)).should(Condition.visible);
         });
     }
 

@@ -17,14 +17,14 @@ public class BaseSteps {
         open(BASE_URL);
     }
 
-    @Step("Search for repository ${repository}")
+    @Step("Search for repository {repository}")
     public void searchForRepository(final String repository) {
         $(".header-search-input").click();
-        $(".header-search-input").sendKeys(repository);
+        $(".header-search-input").setValue(repository).submit();
         $(".header-search-input").submit();
     }
 
-    @Step("Go to repository ${repository}")
+    @Step("Go to repository {repository}")
     public void goToRepositoryFromSearch(final String repository) {
         $(By.linkText(repository)).click();
     }
@@ -34,21 +34,21 @@ public class BaseSteps {
         $(withText("Issues")).click();
     }
 
-    @Step("Create Issue с ${title}")
+    @Step("Create Issue с {title}")
     public void createIssueWithTitle(final String title) {
        $(byXpath("//a[href='/AnkaNik/qa_courses_07/issues/new/choose']")).click();
-       $("#issue_title").sendKeys(title);
+       $("#issue_title").setValue(title).submit();
        $(byText("Submit new issue")).click();
 
     }
 
-    @Step("Check that Issue with title ${number} present")
+    @Step("Check that Issue with title {number} present")
     public void shouldSeeIssueWithTitle(final String title) {
-        $(withText(title)).should(Condition.exist);
+        $(withText(title)).should(Condition.visible);
     }
 
-    @Step("Check that Issue with  number ${number} present")
+    @Step("Check that Issue with  number {number} present")
     public void shouldSeeIssueWithNumber(final String number) {
-        $(withText(number)).should(Condition.exist);
+        $(withText(number)).should(Condition.visible);
     }
 }
