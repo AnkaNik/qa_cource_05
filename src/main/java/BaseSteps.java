@@ -46,9 +46,4 @@ public class BaseSteps {
     public void shouldSeeIssueWithTitle(final String title) {
         $(withText(title)).should(Condition.visible);
     }
-
-    @Step("Check that Issue with  number {number} present")
-    public void shouldSeeIssueWithNumber(final String number) {
-        $(withText(number)).should(Condition.visible);
-    }
 }

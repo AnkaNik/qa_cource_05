@@ -29,7 +29,5 @@ public class MethodStepTest {
         steps.goToRepositoryFromSearch(REPOSITORY);
         steps.openRepositoryIssues();
         steps.createIssueWithTitle(ISSUE_TITLE);
-        steps.shouldSeeIssueWithTitle(ISSUE_NUMBER);
     }
-
 }
